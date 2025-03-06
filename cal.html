@@ -3,45 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Calendar</title>
     <link rel="stylesheet" href="cal.css">
 </head>
 <body>
 
-    <div class="calculator">
-        <div class="result">
-        <p class="res"></p>
-        </div>
-        <div class="numbers">
-       <table>
-        <tr>
-            <td><button onclick="appendvalue('7')">7</button></td>
-            <td><button onclick="appendvalue('8')">8</button></td>
-            <td><button onclick="appendvalue('9')">9</button></td>
-            <td><button onclick="appendvalue('+')">+</button></td>
-        </tr>
+    <div class="hero">
+       
+        <div class="calendar">
 
-        <tr>
-            <td><button onclick="appendvalue('4')">4</button></td>
-            <td><button onclick="appendvalue('5')">5</button></td>
-            <td><button onclick="appendvalue('6')">6</button></td>
-            <td><button onclick="appendvalue('-')">-</button></td>
-        <tr>
-            <td><button onclick="appendvalue('3')">3</button></td>
-            <td><button onclick="appendvalue('2')">2</button></td>
-            <td><button onclick="appendvalue('1')">1</button></td>
-            <td><button onclick="appendvalue('*')">*</button></td>
-        </tr>
-        <tr>
-            <td><button onclick="clearvalue()">c</button></td>
-            <td><button onclick="appendvalue('0')">0</button></td>
-            <td><button onclick="calculatevalue('')">=</button></td>
-            <td><button onclick="appendvalue('/')">/</button></td>
-        </tr>
-       </table>
+            <div class="left">
+                <p id="date">01</p>
+                <p id="day">Sunday</p>
+    
+            </div>
+    
+            <div class="right">
+                <p id="month">January</p>
+                <p id="year">2020</p>
+    
+            </div>
         </div>
+
     </div>
+
+    <script>
+
+        let date = document.getElementById("date");
+        let day = document.getElementById("day");
+        let month = document.getElementById("month");
+        let year = document.getElementById("year");
+
+        let today =new Date();
+
+        let weekdays =["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        let allmonths=["January","February","March","April","May","June","July","August","September","October","November","December"];
+        console.log(today);
+
+        date.innerHTML= (today.getDate()<10?"0":"") today.getDate();
+        day.innerHTML =weekdays[today.getDay()];
+        month.innerHTML=allmonths[today.getMonth()];
+        year.innerHTML=today.getFullYear();
+
+
+    </script>
     
 </body>
-<script src="cal.js"></script>
 </html>
